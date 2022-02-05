@@ -1,10 +1,46 @@
 ﻿@page
-@model IndexModel
+@model WebApp.Pages.Users.CreateModel
 @{
     ViewData["Title"] = "Home page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1>Create</h1>
+
+    <h4>User</h4>
+    <hr />
+    <div class="login" style="border: 1px solid black; display:inline-block">
+        <h3>Sign In</h3>
+        <hr />
+        <div class="row" >
+                <form method="post" style="text-align: center">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group" style="width: 90%; display: inline-block">
+                        <label asp-for="User.UserName" class="control-label"></label>
+                        <input asp-for="User.UserName" class="form-control" />
+                        <span asp-validation-for="User.UserName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group"  style="width: 90%; display: inline-block">
+                        <label asp-for="User.Password" class="control-label"></label>
+                        <input asp-for="User.Password" class="form-control" />
+                        <span asp-validation-for="User.Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Sign In" class="btn btn-primary" />
+                    </div>
+                </form>
+
+                <hr />
+
+        </div>
+    </div>
+
+    <div>
+        <a asp-page="Index">Back to List</a>
+    </div>
 </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

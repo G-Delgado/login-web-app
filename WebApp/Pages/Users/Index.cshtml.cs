@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using WebApp.Data;
 using WebApp.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace WebApp.Pages.Users
 {
@@ -21,6 +22,10 @@ namespace WebApp.Pages.Users
         }
 
         public IList<User> User { get;set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string Username { get; set; }
+        public string Passwword { get; set; }
 
         public async Task OnGetAsync()
         {
