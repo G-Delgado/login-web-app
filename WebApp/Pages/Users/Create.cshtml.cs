@@ -26,7 +26,7 @@ namespace WebApp.Pages.Users
         }
 
         [BindProperty]
-        public User User { get; set; }
+        public new User User { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -36,8 +36,24 @@ namespace WebApp.Pages.Users
                 return Page();
             }
 
+            if (User.FirstName == null || User.LastName == null || User.BirthDay.Equals(1/01/0001))
+            {
+                // We need a search method that comes from Index
+                // Then redirect to a certain webPage
+                if (true) // Instead of true is the result of the search compared to the user Username and Password
+                {
+                return RedirectToPage("Users/Index");
+                }
+                else
+                {
+                    // Stays in the page and lets out a warning
+                }
+            }
+            else
+            {
             _context.User.Add(User);
             await _context.SaveChangesAsync();
+            }
 
             return RedirectToPage("./Index");
         }

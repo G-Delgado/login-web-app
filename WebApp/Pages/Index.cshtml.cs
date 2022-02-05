@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using WebApp.Pages.Users;
 
 namespace WebApp.Pages
 {
@@ -12,9 +13,12 @@ namespace WebApp.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
-
+            return Page();
         }
+
+        //[BindProperty]
+        //public User User { get; set; }
     }
 }
