@@ -40,7 +40,7 @@ namespace WebApp.Pages.Users
             {
                 // We need a search method that comes from Index
                 // Then redirect to a certain webPage
-                var dbEntryUsername = _context.User.FirstOrDefault(acc => acc.UserName == User.UserName);
+                var dbEntryUsername = _context.User.FirstOrDefault(acc => acc.UserName == User.UserName && acc.Password == User.Password);
                 //var dbEntryPassword = _context.User.FirstOrDefault(acc => acc.Password == User.Password);
                     //.FirstOrDefault(acc => acc.username == username);
                 if (dbEntryUsername.UserName == User.UserName && dbEntryUsername.Password == User.Password) // Instead of true is the result of the search compared to the user Username and Password
