@@ -35,8 +35,10 @@ namespace WebApp.Pages.Users
             {
                 return Page();
             }
-
-            if (User.FirstName == null && User.LastName == null && User.BirthDay.Equals(1/01/0001))
+            Console.WriteLine(User.FirstName);
+            Console.WriteLine(User.LastName);
+            Console.WriteLine(User.BirthDay);
+            if (User.FirstName == null || User.LastName == null || User.BirthDay.Equals(1/01/0001))
             {
                 // We need a search method that comes from Index
                 // Then redirect to a certain webPage
